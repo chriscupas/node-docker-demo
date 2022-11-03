@@ -12,11 +12,8 @@ node {
      }
    }
    stage('docker build/push') {
-    withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-        bat "docker push chriscupas/nodejs-local-demo:${commit_id}"
-    }
-    //  docker.withRegistry('https://index.docker.io/v2/', 'dockerhub') {
-    //    def app = docker.build("chriscupas/nodejs-local-demo:${commit_id}", '.').push()
-    //  }
+     docker.withRegistry('https://index.docker.io/v2/', 'd0326472-c83b-4a8c-bee1-17fb540aaa90') {
+       def app = docker.build("chriscupas/nodejs-local-demo:${commit_id}", '.').push()
+     }
    }
 }
