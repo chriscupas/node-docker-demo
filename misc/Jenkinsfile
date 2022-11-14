@@ -12,7 +12,7 @@ node {
      }
    }
    stage('docker build/push') {
-     docker.withRegistry('https://index.docker.io/v2/', 'd0326472-c83b-4a8c-bee1-17fb540aaa90') {
+     docker.withRegistry('https://registry-1.docker.io/v2/', 'docker-personal-token') {
        def app = docker.build("chriscupas/nodejs-local-demo:${commit_id}", '.').push()
      }
    }
